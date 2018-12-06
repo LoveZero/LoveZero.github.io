@@ -25,12 +25,12 @@ function imageExists(image_url){
 
 var amipage = getParameterByName('page');
 var amiproduct = getParameterByName('gcode', amipage);
-var amiproductimagetemplete = https://img.amiami.com/images/product/main/;
+var amiproductimagetemplete = 'https://img.amiami.com/images/product/main/';
 var i = 0;
-var amiproductimage = amiproductimagetemplete + i + "/" + amiproduct;
+var amiproductimage = amiproductimagetemplete + i + '/' + amiproduct;
 while (!imageExists(amiproductimage)) {
     i++;
-    amiproductimage = amiproductimagetemplete + i + "/" + amiproduct;
+    amiproductimage = amiproductimagetemplete + i + '/' + amiproduct;
 }
 
 document.getElementById('abc').innerHTML = amiproductimage;
