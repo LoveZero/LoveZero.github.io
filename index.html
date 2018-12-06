@@ -1,4 +1,4 @@
-<h1 id="abc"><h1>
+<img id="abc" src="https://img.amiami.com/images/product/main/184/FIGURE-043485.jpg"><img>
 
 <script type="text/javascript">
 function getParameterByName(name, url) {
@@ -11,7 +11,14 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function imageExists(image_url){
+    var http = new XMLHttpRequest();
+    http.open('HEAD', image_url, false);
+    http.send();
+    return http.status != 404;
+}
+
 var foo = getParameterByName('page');
 
- document.getElementById('abc').innerHTML = foo;
+
 </script>
