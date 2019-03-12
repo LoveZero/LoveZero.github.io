@@ -1,10 +1,4 @@
-<html prefix="og: http://ogp.me/ns#">
-<head>
-<title></title>
-<meta id="abc" property="og:image" content="" />
-</head>
-</html>
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -16,23 +10,20 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function imageExists(image_url){
-    var http = new XMLHttpRequest();
-    http.open('HEAD', image_url, false);
-    http.send();
-    return http.status != 404;
-}
 
 var amipage = getParameterByName('page');
-var amiproduct = getParameterByName('gcode', amipage);
-var amiproductimagetemplete = 'https://img.amiami.com/images/product/main/';
-var i = 0;
-var amiproductimage = amiproductimagetemplete + i + '/' + amiproduct;
-while (!imageExists(amiproductimage)) {
-    i++;
-    amiproductimage = amiproductimagetemplete + i + '/' + amiproduct;
-}
-console.log(amiproductimage);
-document.getElementById('abc').setAttribute("content", amiproductimage);
 
+$.ajax(amipage, {
+    success: function(response) {
+        $("#content2").html(response);
+    }
+});
+console.log(amipage);
 </script>
+
+<html>
+    <body>
+        <div id="content2">
+        </div>
+    </body>
+</html>
